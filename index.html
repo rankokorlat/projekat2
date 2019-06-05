@@ -1,2 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Projekat 2 - ToDo Lista</title>
+</head>
+<body>
+    <div>
+        <h2>To-Do-Lista</h2>
+        <input type="text" id="unos" placeholder="Upisite podsetnik...">
+        <span class="button" onclick="noviDo()">Potvrdi</span>
+    </div>
+
+    <ul id="lista"></ul>
+</body>
+
+<script>
+function noviDo(){
+    var li = document.createElement("li");
+    var inputValue = document.getElementById("unos").value;
+    var tekst = document.createTextNode(inputValue);
+    li.appendChild(tekst);
+        if (inputValue === ""){
+            alert ("Unesite tekst u podsetnik");
+        }
+        else{
+            document.getElementById("lista").appendChild(li);
+        }
+        document.getElementById("unos").value = "";
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+        for (i=0; i<close.length; i++){
+            close[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.display - "none";
+            }
+        }
+}
+
+</script>
+</html>
