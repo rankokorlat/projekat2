@@ -5,18 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Projekat 2 - ToDo Lista</title>
+
+<style>
+.close{
+
+}
+</style>
+
 </head>
 <body>
     <div>
+        <!-- Naslov -->
         <h2>To-Do-Lista</h2>
+        <!-- Input - unos podsetnika -->
         <input type="text" id="unos" placeholder="Upisite podsetnik...">
+        <!-- Dugme za potvrdu -->
         <span class="button" onclick="noviDo()">Potvrdi</span>
     </div>
 
     <ul id="lista"></ul>
 </body>
-
+<!-- Java Script -->
 <script>
+    // Unos nove stavke
 function noviDo(){
     var li = document.createElement("li");
     var inputValue = document.getElementById("unos").value;
@@ -41,6 +52,34 @@ function noviDo(){
             }
         }
 }
+
+let spisak = document.getElementById("LI");
+var i;
+for(i=0; i<spisak.length; i++){
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    spisak[i].appendChild(span);
+}
+var close = document.getElementsByClassName("close");
+var i;
+for(i = 0; i < close.length; i++){
+    close[i].onclick = function(){
+        var div = this.parentElement;
+        div.style.display = "none";
+    }
+}
+
+var lista = document.querySelector("ul");
+lista.addEventListener("click", function(ev){
+    if (ev.target.tagName === "LI"){
+        ev.target.classList.toggle("checked");
+    }
+},
+false
+);
+
 
 </script>
 </html>
