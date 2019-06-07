@@ -6,15 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Projekat 2 - ToDo Lista</title>
 
+<!-- CSS -->
 <style>
-.close{
-
+body{
+    background-color: aquamarine;
 }
+
+h2{
+    font-size: 40px;
+    color: darkorange;
+    margin: auto;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.prvi{
+    text-align: center;
+    
+}
+
+
 </style>
 
 </head>
 <body>
-    <div>
+    <div class="prvi">
         <!-- Naslov -->
         <h2>To-Do-Lista</h2>
         <!-- Input - unos podsetnika -->
@@ -23,13 +40,23 @@
         <span class="button" onclick="noviDo()">Potvrdi</span>
     </div>
 
+    <!-- Lista podsetnika -->
+<div>
     <ul id="lista"></ul>
+</div>
+
+
 </body>
+
+
 <!-- Java Script -->
+
+
 <script>
+
     // Unos nove stavke
 function noviDo(){
-    var li = document.createElement("li");
+    var li = document.createElement("LI");
     var inputValue = document.getElementById("unos").value;
     var tekst = document.createTextNode(inputValue);
     li.appendChild(tekst);
@@ -48,14 +75,14 @@ function noviDo(){
         for (i=0; i<close.length; i++){
             close[i].onclick = function(){
                 var div = this.parentElement;
-                div.style.display - "none";
+                div.style.display = "none";
             }
         }
 }
 
-let spisak = document.getElementById("LI");
+let spisak = document.getElementsByTagName("LI");
 var i;
-for(i=0; i<spisak.length; i++){
+for(i = 0; i < spisak.length; i++){
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
