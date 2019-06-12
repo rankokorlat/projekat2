@@ -9,7 +9,8 @@
 <!-- CSS -->
 <style>
 body{
-    background-color: darkblue;
+    background: linear-gradient(to bottom, blue, red);
+    height: 700px;
 }
 
 h2{
@@ -25,13 +26,17 @@ h2{
     text-align: center;
     
 }
-
+.inp{
+    text-align: center;
+}
 input{
     font-size: 20px;
     line-height: 30px;
-    width: 400px;
+    width: 55%;
+    text-align: center;  
 
 }
+
 .button{
     border: rgb(0, 255, 13) solid 3px;
     border-radius: 10px;
@@ -41,34 +46,73 @@ input{
     padding: 5px 15px 5px 15px;
     cursor: pointer;
     margin-left: 15px;
-}
+    margin: auto;
+    
+    }
 
 #lista{
-    width: 650px;
-    text-align: center;
+   
     padding-top: 40px;
     color: rgb(0, 255, 13);
     font-size: 18px;
+    margin-left: 2%;
+    cursor: pointer;
+}
+li {
+    padding: 7px;
+    border: 1px solid rgb(0, 255, 13);
+    text-align: left;
+    margin-top: 4px;
+    width: 85%;
+   
+}
+ul {
+    padding: 5px;
+    
     
 }
+
+.close{
+    position: absolute;
+    right: 1%;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+    border: red 2px solid;
+    border-radius: 9px;
+    padding: 4px;
+   
+    
+
+    
+}
+
+li.checked{
+    text-decoration: line-through;
+    color:rgb(236, 183, 38);
+    
+}
+    
+
 
 </style>
 
 </head>
 <body>
-    <div class="prvi">
+    
         <!-- Naslov -->
         <h2>PODSETNIK</h2>
+   
         <!-- Input - unos podsetnika -->
-        <input type="text" id="unos" placeholder="Upisite podsetnik...">
+    <div class="inp">
+        <input type="text" id="unos" placeholder="Upisite podsetnik..." maxlength="30">
         <!-- Dugme za potvrdu -->
         <span class="button" onclick="noviDo()">Potvrdi</span>
     </div>
 
     <!-- Lista podsetnika -->
-<div>
+
     <ul id="lista"></ul>
-</div>
 
 
 </body>
@@ -93,7 +137,7 @@ function noviDo(){
         }
         document.getElementById("unos").value = "";
         var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
+        var txt = document.createTextNode("OBRISI");
         span.className = "close";
         span.appendChild(txt);
         li.appendChild(span);
@@ -109,7 +153,7 @@ let spisak = document.getElementsByTagName("LI");
 var i;
 for(i = 0; i < spisak.length; i++){
     var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
+    var txt = document.createTextNode("OBRISI");
     span.className = "close";
     span.appendChild(txt);
     spisak[i].appendChild(span);
